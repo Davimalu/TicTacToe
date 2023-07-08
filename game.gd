@@ -31,7 +31,3 @@ func reset_game():
 	scores.player_score = 0
 	scores.computer_score = 0
 	get_tree().change_scene_to_file("res://main.tscn")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

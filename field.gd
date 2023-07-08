@@ -76,18 +76,18 @@ func check_winner():
 	return false
 
 
-func winner(name):
+func winner(player_name):
 	# Update global player_score or computer_score variable and alert the player
-	if name == "Tie":
+	if player_name == "Tie":
 		scores.player_score += 1
 		scores.computer_score += 1
 		OS.alert("It's a tie!", "Round End!")
 	else:
-		if name == "X":
+		if player_name == "X":
 			scores.player_score += 1
 		else:
 			scores.computer_score += 1
-		OS.alert(str(name) + " has won", "Round End!")
+		OS.alert(str(player_name) + " has won", "Round End!")
 		
 	# Restart the game and add points
 	get_tree().change_scene_to_file("res://game.tscn")
