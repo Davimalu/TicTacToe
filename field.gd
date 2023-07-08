@@ -161,49 +161,19 @@ func ai_turn():
 	
 	is_player_turn = true
 
-# Button click events | Each button click leads to game_turn() being executed
+# Button click events | Each button click leads to player_turn() being executed
 # The field number is passed as argument
-func _on_00_area_2d_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			player_turn(0)
+func _ready():
+	for i in 9:
+		# Construct name of game obejct
+		var Area2D_name = "0" + str(i) + "Area2D"
+		# Get that game object
+		var Area2D_object = get_node(Area2D_name)
+		# The .bind() method allows to pass in another argument
+		# See https://docs.godotengine.org/en/stable/classes/class_object.html#class-object-method-connect 
+		Area2D_object.input_event.connect(on_button_click.bind(i))
 
-func _on_01_area_2d_input_event(_viewport, event, _shape_idx):
+func on_button_click(_viewport, event, _shape_idx, button_index):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			player_turn(1)
-
-func _on_02_area_2d_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			player_turn(2)
-
-func _on_03_area_2d_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			player_turn(3)
-
-func _on_04_area_2d_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			player_turn(4)
-
-func _on_05_area_2d_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			player_turn(5)
-
-func _on_06_area_2d_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			player_turn(6)
-
-func _on_07_area_2d_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			player_turn(7)
-
-func _on_08_area_2d_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			player_turn(8)
+			player_turn(button_index)

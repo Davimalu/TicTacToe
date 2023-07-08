@@ -125,13 +125,3 @@ texture = ExtResource("1_y7bkt")
 [node name="08CollisionShape2D" type="CollisionShape2D" parent="08Area2D"]
 position = Vector2(11.7754, 3.07236)
 shape = SubResource("RectangleShape2D_8uteu")
-
-[connection signal="input_event" from="00Area2D" to="." method="_on_00_area_2d_input_event"]
-[connection signal="input_event" from="01Area2D" to="." method="_on_01_area_2d_input_event"]
-[connection signal="input_event" from="02Area2D" to="." method="_on_02_area_2d_input_event"]
-[connection signal="input_event" from="03Area2D" to="." method="_on_03_area_2d_input_event"]
-[connection signal="input_event" from="04Area2D" to="." method="_on_04_area_2d_input_event"]
-[connection signal="input_event" from="05Area2D" to="." method="_on_05_area_2d_input_event"]
-[connection signal="input_event" from="06Area2D" to="." method="_on_06_area_2d_input_event"]
-[connection signal="input_event" from="07Area2D" to="." method="_on_07_area_2d_input_event"]
-[connection signal="input_event" from="08Area2D" to="." method="_on_08_area_2d_input_event"]
