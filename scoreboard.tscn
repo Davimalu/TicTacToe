@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://djmdqleh8rhac"]
+
+[ext_resource type="Texture2D" uid="uid://d28exf5o0cstn" path="res://images/scoreboard_computer.png" id="1_umppf"]
+[ext_resource type="Script" path="res://computer_score.gd" id="2_11s8b"]
+[ext_resource type="Texture2D" uid="uid://m0m7mjyl8and" path="res://images/scoreboard_player.png" id="2_huqbk"]
+[ext_resource type="Script" path="res://player_score.gd" id="4_6uvct"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_v3aw6"]
+font_size = 96
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2e663"]
+font_size = 96
+font_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ScoreboardComputer" type="Sprite2D" parent="."]
+position = Vector2(337, 126)
+texture = ExtResource("1_umppf")
+
+[node name="computer_score" type="Label" parent="ScoreboardComputer"]
+offset_left = 105.0
+offset_top = 116.0
+offset_right = 160.0
+offset_bottom = 251.0
+text = "0"
+label_settings = SubResource("LabelSettings_v3aw6")
+script = ExtResource("2_11s8b")
+
+[node name="ScoreboardPlayer" type="Sprite2D" parent="."]
+position = Vector2(-201, 126)
+texture = ExtResource("2_huqbk")
+
+[node name="player_score" type="Label" parent="ScoreboardPlayer"]
+offset_left = 105.0
+offset_top = 117.0
+offset_right = 160.0
+offset_bottom = 252.0
+text = "0"
+label_settings = SubResource("LabelSettings_2e663")
+script = ExtResource("4_6uvct")

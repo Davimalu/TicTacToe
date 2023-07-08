@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq3obu0qttnc6"]
+
+[ext_resource type="PackedScene" uid="uid://bwhhi73bt1bfn" path="res://background.tscn" id="1_8b7tc"]
+[ext_resource type="Script" path="res://main.gd" id="1_bwevp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s8jlf"]
+font_size = 64
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="background" parent="." instance=ExtResource("1_8b7tc")]
+offset_right = 512.0
+offset_bottom = 648.0
+
+[node name="title" type="Label" parent="."]
+offset_left = 113.0
+offset_top = 116.0
+offset_right = 416.0
+offset_bottom = 207.0
+text = "TicTacToe"
+label_settings = SubResource("LabelSettings_s8jlf")
+script = ExtResource("1_bwevp")
+
+[node name="start" type="Button" parent="title"]
+offset_left = -61.0
+offset_top = 236.0
+offset_right = 355.0
+offset_bottom = 316.0
+text = "Start"
+
+[node name="quit" type="Button" parent="title"]
+offset_left = -61.0
+offset_top = 325.0
+offset_right = 355.0
+offset_bottom = 405.0
+text = "Quit"
+
+[node name="copyright" type="Label" parent="."]
+offset_left = 5.0
+offset_top = 622.0
+offset_right = 378.0
+offset_bottom = 648.0
+text = "Made for CS50 - Final Project | By David Zeugner"
+
+[connection signal="pressed" from="title/start" to="title" method="_on_start_pressed"]
+[connection signal="pressed" from="title/quit" to="title" method="_on_quit_pressed"]

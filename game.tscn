@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://c1oyptthnl1jl"]
+
+[ext_resource type="PackedScene" uid="uid://bwhhi73bt1bfn" path="res://background.tscn" id="1_8upj1"]
+[ext_resource type="PackedScene" uid="uid://t8kypcqf7h6p" path="res://field.tscn" id="1_drqoa"]
+[ext_resource type="Script" path="res://game.gd" id="1_qrker"]
+[ext_resource type="Texture2D" uid="uid://d28exf5o0cstn" path="res://images/scoreboard_computer.png" id="4_hyvf7"]
+[ext_resource type="Script" path="res://computer_score.gd" id="5_praa8"]
+[ext_resource type="Texture2D" uid="uid://m0m7mjyl8and" path="res://images/scoreboard_player.png" id="6_dwtss"]
+[ext_resource type="Script" path="res://player_score.gd" id="7_lrtim"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_v3aw6"]
+font_size = 96
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2e663"]
+font_size = 96
+font_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_qrker")
+
+[node name="background" parent="." instance=ExtResource("1_8upj1")]
+offset_right = 512.0
+offset_bottom = 648.0
+
+[node name="field" parent="." instance=ExtResource("1_drqoa")]
+position = Vector2(-324, -4)
+
+[node name="scoreboard" type="Node2D" parent="."]
+position = Vector2(236, 61)
+scale = Vector2(0.36, 0.36)
+
+[node name="ScoreboardComputer" type="Sprite2D" parent="scoreboard"]
+position = Vector2(337, 126)
+texture = ExtResource("4_hyvf7")
+
+[node name="computer_score" type="Label" parent="scoreboard/ScoreboardComputer"]
+offset_left = 105.0
+offset_top = 116.0
+offset_right = 160.0
+offset_bottom = 251.0
+text = "0"
+label_settings = SubResource("LabelSettings_v3aw6")
+script = ExtResource("5_praa8")
+
+[node name="ScoreboardPlayer" type="Sprite2D" parent="scoreboard"]
+position = Vector2(-201, 126)
+texture = ExtResource("6_dwtss")
+
+[node name="player_score" type="Label" parent="scoreboard/ScoreboardPlayer"]
+offset_left = 105.0
+offset_top = 117.0
+offset_right = 160.0
+offset_bottom = 252.0
+text = "0"
+label_settings = SubResource("LabelSettings_2e663")
+script = ExtResource("7_lrtim")
+
+[connection signal="update_labels" from="." to="scoreboard/ScoreboardComputer/computer_score" method="_on_node_2d_update_labels"]
+[connection signal="update_labels" from="." to="scoreboard/ScoreboardPlayer/player_score" method="_on_node_2d_update_labels"]
